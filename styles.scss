@@ -1,4 +1,4 @@
-// Variables - Colores Hello Kitty
+// Variables - Colores Hello Kitty (actualizadas para mejor contraste)
 $rosa-kitty: #ffb6c1;
 $amarillo-kitty: #fff0b3;
 $rosa-oscuro: #ff69b4;
@@ -7,6 +7,11 @@ $fondo-claro: #fffaf0;
 $blanco: #ffffff;
 $gris-texto: #555555;
 $gris-claro: #888888;
+
+// Fuentes profesionales
+$fuente-principal: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$fuente-secundaria: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
+$fuente-mono: 'SF Mono', 'Roboto Mono', monospace;
 
 // Mixins
 @mixin flex-center {
@@ -24,31 +29,21 @@ $gris-claro: #888888;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: $fuente-principal;
 }
 
 body {
   background-color: $fondo-claro;
   color: $gris-texto;
   line-height: 1.6;
-}
-
-// Estructura principal
-#wrapper {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  min-height: 100vh;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  font-weight: 400;
 }
 
 // Barra lateral
 #nav {
-  background-color: $rosa-kitty;
+  background-color: $rosa-oscuro;
   color: $blanco;
-  padding: 20px;
+  padding: 2rem;
   position: relative;
   @include sombra-caja;
 
@@ -58,22 +53,28 @@ body {
     border-radius: 50%;
     border: 4px solid $amarillo-kitty;
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 1.5rem;
     object-fit: cover;
+    @include sombra-caja;
   }
 
   .name {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.75rem;
+    font-weight: 700;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
+    font-family: $fuente-secundaria;
+    color: $blanco;
+    letter-spacing: 0.5px;
   }
 
   .st {
     text-align: center;
-    margin-bottom: 30px;
-    color: $texto-suave;
-    font-size: 16px;
+    margin-bottom: 2rem;
+    color: $blanco;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 500;
   }
 
   .scroll {
@@ -81,26 +82,31 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: $rosa-oscuro;
+    background-color: darken($rosa-oscuro, 10%);
+    padding: 1rem 0;
 
     ul {
       display: flex;
       justify-content: space-around;
       list-style: none;
-      padding: 15px 0;
+      padding: 0;
+      margin: 0;
 
       li {
-        padding: 5px 10px;
+        padding: 0.5rem 1rem;
       }
 
       a {
         color: $blanco;
         text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        font-family: $fuente-secundaria;
 
         &:hover {
           color: $amarillo-kitty;
+          transform: translateY(-2px);
         }
       }
     }
@@ -108,14 +114,22 @@ body {
 
   #contactNav {
     display: none;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 1.5rem;
 
     @media (max-width: 768px) {
       display: flex;
-      justify-content: center;
-      margin-top: 20px;
+    }
 
-      a {
-        margin: 0 10px;
+    a {
+      color: $blanco;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $amarillo-kitty;
+        transform: scale(1.1);
       }
     }
   }
@@ -123,74 +137,98 @@ body {
 
 // Contenido principal
 #content {
-  padding: 40px;
+  padding: 3rem;
   background-color: $blanco;
 
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 1.5rem;
   }
 
   h1 {
-    color: $rosa-kitty;
-    font-size: 28px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+    color: $rosa-oscuro;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
     border-bottom: 3px solid $amarillo-kitty;
+    font-family: $fuente-secundaria;
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
   #about {
     div {
       line-height: 1.8;
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: darken($gris-texto, 10%);
 
       span {
-        font-weight: bold;
-        color: $rosa-kitty;
+        font-weight: 600;
+        color: $rosa-oscuro;
       }
     }
   }
 
   ul {
-    margin-left: 20px;
+    margin-left: 1.5rem;
     line-height: 1.8;
+    font-size: 1.1rem;
+    list-style-position: outside;
 
     li {
-      margin-bottom: 10px;
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+
+    ul {
+      margin-top: 0.5rem;
+      margin-left: 1.5rem;
     }
   }
 
   #work {
     p {
-      margin-left: 20px;
+      margin-left: 2rem;
       color: $gris-claro;
       font-style: italic;
+      font-size: 0.95rem;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
     }
   }
 
   // Sección de contacto
   #contacto {
-    margin-top: 20px;
+    margin-top: 2rem;
 
     #container {
       @include flex-center;
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+      gap: 1rem;
 
-      img {
-        width: 40px;
-        height: 40px;
-        margin-right: 15px;
+      .icon-container {
+        font-size: 1.5rem;
+        color: $rosa-oscuro;
+        min-width: 2rem;
+        text-align: center;
+        margin-top: 0.2rem;
       }
 
       #cont {
         color: $gris-texto;
+        font-size: 1.1rem;
+        line-height: 1.6;
 
         a {
-          color: $rosa-kitty;
+          color: $rosa-oscuro;
           text-decoration: none;
-          font-weight: 500;
+          font-weight: 600;
+          transition: all 0.2s ease;
+          word-break: break-all;
 
           &:hover {
-            color: $amarillo-kitty;
+            color: darken($rosa-oscuro, 15%);
             text-decoration: underline;
           }
         }
@@ -203,4 +241,21 @@ body {
 .git {
   width: 40px;
   height: 40px;
+}
+
+// Media queries para responsividad
+@media (max-width: 768px) {
+  #wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  #nav {
+    position: relative;
+    padding-bottom: 5rem;
+
+    .scroll {
+      position: static;
+      margin-top: 1.5rem;
+    }
+  }
 }
