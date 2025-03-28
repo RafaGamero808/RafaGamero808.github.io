@@ -1,4 +1,4 @@
-// Variables - Colores Hello Kitty (actualizadas para mejor contraste)
+// Coloreado a lo Hello Kitty
 $rosa-kitty: #ffb6c1;
 $amarillo-kitty: #fff0b3;
 $rosa-oscuro: #ff69b4;
@@ -8,12 +8,12 @@ $blanco: #ffffff;
 $gris-texto: #555555;
 $gris-claro: #888888;
 
-// Fuentes profesionales
+// Fuentes más serias
 $fuente-principal: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 $fuente-secundaria: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
 $fuente-mono: 'SF Mono', 'Roboto Mono', monospace;
 
-// Mixins
+//mixin
 @mixin flex-center {
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@ body {
   font-weight: 400;
 }
 
-// Barra lateral
+// Barra lateral que por algún motivo ha acabado siendo barra superior
 #nav {
   background-color: $rosa-oscuro;
   color: $blanco;
